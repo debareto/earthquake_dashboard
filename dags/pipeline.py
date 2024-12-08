@@ -76,4 +76,4 @@ task_store_to_db = PythonOperator(
 
 
 task_fetch_earthquake_data >> task_store_to_db
-airflow users  create --role Admin --username admin --email admin --firstname admin --lastname admin --password admin
+# airflow users  create --role Admin --username admin --email admin --firstname admin --lastname admin --password admin
