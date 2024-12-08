@@ -19,6 +19,8 @@ def get_earthquake_data(date):
     df['latitude'] = df['latitude'].astype(float)
     df['longitude'] = df['longitude'].astype(float)
     df['magnitude'] = df['magnitude'].astype(float)
+    df= df[df['magnitude']> 2]
+
 
     return df
 
