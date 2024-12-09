@@ -64,3 +64,6 @@ Welcome to the **Real-Time Earthquake Monitoring Dashboard**! This project provi
    
    docker-compose up
 
+   python .\dynamic_map.py
+
+  
