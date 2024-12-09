@@ -59,3 +59,8 @@ Welcome to the **Real-Time Earthquake Monitoring Dashboard**! This project provi
    ```bash
    git clone https://github.com/your-username/earthquake-dashboard.git
    cd earthquake-dashboard
+
+   install requirements 
+   
+   docker-compose up
+
