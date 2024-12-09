@@ -6,10 +6,6 @@ from read_data import get_earthquake_data
 
 app = dash.Dash(__name__)
 
-# # Custom CSS
-# app.css.append_css({
-#     'external_url': 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'
-# })
 
 app.layout = html.Div([
     html.Div([
@@ -23,9 +19,9 @@ app.layout = html.Div([
             'textAlign': 'center',
             'fontFamily': 'Arial, sans-serif',
             'color': '#777',
-            'fontSize': '16px'
+            'fontSize': '14px'
         })
-    ], style={'padding': '20px', 'backgroundColor': '#f7f7f7'}),
+    ], style={'padding': '1px', 'backgroundColor': '#f7f7f7'}),
     html.Div([
         
         dcc.DatePickerSingle(
@@ -37,26 +33,44 @@ app.layout = html.Div([
             display_format='DD/MM/YYYY', 
             style={
                 'display': 'inline-block',
-                'margin': '10px auto',
+                'margin': '5px auto',
                 'borderRadius': '5px',
                 'border': '1px solid #ddd',
                 'fontSize': '14px',  # Increased font size for better visibility
                 'backgroundColor': '#fff'
             }
         ) ,
-    ], style={'textAlign': 'center', 'paddingBottom': '20px', 'display': 'flex', 'alignItems': 'center', 'justifyContent': 'center'}),  # Flexbox for alignment
+    ], style={'textAlign': 'center', 'paddingBottom': '5px', 'display': 'flex', 'alignItems': 'center', 'justifyContent': 'center', 'backgroundColor': '#f7f7f7'}),  # Flexbox for alignment
     
     html.Div([
-        dcc.Graph(id='earthquake-map', style={
-            'height': '400px',
+    dcc.Graph(
+        id='earthquake-map',
+        style={
+            'height': '100%',
             'width': '100%',
-            'MaxWidth': '600px',
-            'border': '1px solid #ddd',
-            'borderRadius': '10px',
-        })
-    ], style={'padding': '0 20px', 'textAlign': 'center'}),
+            'border': '1px solid #ddd'
+        }
+    )
+    ], style={
+        'padding': '0',
+        'margin': '0',
+        'height': '100%',  # Ensure the container takes full available height
+        'width': '100%',   # Ensure the container takes full available width
+        'display': 'flex', # Flexbox ensures proper alignment
+        'alignItems': 'stretch', # Stretch the map to fit the container
+        'justifyContent': 'center', # Optional: align content if additional items exist
+         'backgroundColor': '#f7f7f7'
+    }),
 
-   
+
+    html.Div([
+        
+         html.P(
+                    "Credits: Data sourced from USGS (https://earthquake.usgs.gov) | Contact : T.D ",
+                    style={'fontSize': '14px', 'color': '#888'}
+                )
+    ], style={'padding': '5px', 'backgroundColor': '#f7f7f7'})
+
 ])
 
 

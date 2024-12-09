@@ -2,3 +2,5 @@
 /__pycache__
 .env
 /logs
+test_dynamic_map.py
+display_map.py
