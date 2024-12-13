@@ -1,6 +1,7 @@
 import requests
 import psycopg2
 from datetime import datetime
+import os
 
 
 
@@ -8,9 +9,11 @@ from datetime import datetime
 
 def fetch_and_store_earthquake_data(start_date, end_date):
 
-
+    # Fetch the password from environment variables
+    db_password = os.getenv("DB_PASSWORD")
+        
     # Connect to PostgreSQL
-    conn = psycopg2.connect("dbname=earthquake_db user=postgres password=Debare2001 host=localhost")
+    conn = psycopg2.connect("dbname=earthquake_db user=postgres password=db_password host=localhost")
     cursor = conn.cursor()
     print('connection to the db established')
 
