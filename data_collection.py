@@ -13,7 +13,7 @@ def fetch_and_store_earthquake_data(start_date, end_date):
     db_password = os.getenv("DB_PASSWORD")
         
     # Connect to PostgreSQL
-    conn = psycopg2.connect("dbname=earthquake_db user=postgres password=db_password host=localhost")
+    conn = psycopg2.connect(f"dbname=earthquake_db user=postgres password={db_password} host=localhost")
     cursor = conn.cursor()
     print('connection to the db established')
 

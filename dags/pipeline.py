@@ -4,16 +4,20 @@ from datetime import datetime
 import pandas as pd
 import requests
 import psycopg2
+import os 
+from datetime import datetime, timedelta
 
 
-
-def fetch_data(start_date, end_date): 
+def fetch_today_data(): 
     API_URL  = "https://earthquake.usgs.gov/fdsnws/event/1/query"
 
+
+    today = datetime.today()
+    end_of_day = today + timedelta(days=1)
     params = {
         "format": "geojson",
-        "starttime": start_date,
-        "endtime": end_date,
+        "starttime": today,
+        "endtime": end_of_day,
     }
     response = requests.get(API_URL, params=params)
     data = response.json()
@@ -31,7 +35,7 @@ def store_data(data):
     db_password = os.getenv("DB_PASSWORD")
         
     # Connect to PostgreSQL
-    conn = psycopg2.connect("dbname=earthquake_db user=postgres password=db_password host=localhost")
+    conn = psycopg2.connect(f"dbname=earthquake_db user=postgres password={db_password} host=localhost")
 
 
     cursor = conn.cursor()
@@ -68,7 +72,7 @@ dag = DAG(
 # Define the tasks in the DAG
 task_fetch_earthquake_data = PythonOperator(
     task_id='fetch_earthquake_data',
-    python_callable=fetch_data,
+    python_callable=fetch_today_data,
     dag=dag
 )
 

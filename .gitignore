@@ -4,3 +4,4 @@
 /logs
 test_dynamic_map.py
 display_map.py
+.env
