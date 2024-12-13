@@ -7,7 +7,7 @@ Welcome to the **Real-Time Earthquake Monitoring Dashboard**! This project provi
 ## ✨ Features
 
 - **Real-Time Updates**: 
-  - Automated API requests every hour using **Airflow**.
+  - Automated API requests using **Airflow**.
   - Earthquake map refreshes dynamically with the latest data.
 
 - **Data Persistence**:
