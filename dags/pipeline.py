@@ -27,7 +27,13 @@ def fetch_data(start_date, end_date):
 
 def store_data(data):
     # Connect to PostgreSQL
-    conn = psycopg2.connect("dbname=earthquake_db user=postgres password=Debare2001 host=localhost")
+    # Fetch the password from environment variables
+    db_password = os.getenv("DB_PASSWORD")
+        
+    # Connect to PostgreSQL
+    conn = psycopg2.connect("dbname=earthquake_db user=postgres password=db_password host=localhost")
+
+
     cursor = conn.cursor()
     print('connection to the db established')
     for feature in data:
