@@ -48,7 +48,7 @@ Welcome to the **Real-Time Earthquake Monitoring Dashboard**! This project provi
 ## 📸 Screenshot
 
 
-![app](https://github.com/user-attachments/assets/3db2a430-279b-45ef-abfe-1ff5e76af55f)
+![app](https://github.com/user-attachments/assets/729f0c0e-e3ed-44af-bf0a-b781de5fbb0a)
 
 
 ---
